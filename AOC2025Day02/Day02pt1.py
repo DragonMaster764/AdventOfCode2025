@@ -1,5 +1,3 @@
-import math
-
 #Read the input file
 with open("input.txt") as f:
     rangeLine: str = f.readline().strip()
@@ -25,7 +23,7 @@ for idRange in ranges:
                 invalidIDs += x
 
 
-print (invalidIDs)
+print(invalidIDs)
 
     
     
