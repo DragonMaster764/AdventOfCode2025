@@ -15,7 +15,7 @@ for idRange in ranges:
 
     #Go through the range looking for possible double sequences
     for x in range(int(start), int(end) + 1):
-        numString = str(x)
+        numString: str = str(x)
 
         #If the number in our range can be split in half, and both halves are the same, add it to invalidIDs
         if len(numString) % 2 == 0:

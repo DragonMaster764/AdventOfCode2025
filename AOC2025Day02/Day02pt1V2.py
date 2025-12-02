@@ -17,10 +17,10 @@ for idRange in ranges:
 
     #Go through the range looking for possible double sequences
     for x in range(int(start), int(end) + 1):
-        numString = str(x)
+        numString: str = str(x)
 
         #Use a regular expression pattern to detect repeated numbers (may only be repeated once)
-        match = re.search(r"^([0-9]+)\1{1}$", numString)
+        match: object = re.search(r"^([0-9]+)\1{1}$", numString)
 
         #If there was a match, add it to invalidIDs
         if match:
