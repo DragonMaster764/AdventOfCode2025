@@ -61,7 +61,7 @@ for edge in selectedEdges:
     for c in circuitsToMerge:
         circuits.remove(c) #Remove the circuit as we will combine it later and readd it
 
-    #Merge the circuits the edge connects to (after removing them from the original list first)
+    #Merge the circuits the edge connects to
     mergedCircuit: set[Node] = set.union(*circuitsToMerge)
     circuits.append(mergedCircuit)
 
