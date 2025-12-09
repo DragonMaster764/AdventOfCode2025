@@ -6,11 +6,12 @@ class red_tile:
         self.x, self.y = x, y
 
     def calc_area(self, other) -> int:
-        l: int = ((self.x - other.x) + 1)
-        w: int = ((self.y - other.y) + 1)
+        l: int = abs(self.x - other.x) + 1
+        w: int = abs(self.y - other.y) + 1
         return l*w
 
 
+#Return true if there is an edge inside the rectangle, cutting it up
 def checkEdge(edge: list[red_tile], minX, minY, maxX, maxY):
     edgeMinX: int = min(edge[0].x, edge[1].x)
     edgeMaxX: int = max(edge[0].x, edge[1].x)
@@ -30,7 +31,6 @@ def validate_rect(edges: list[list[red_tile]], c1: red_tile, c2: red_tile) -> bo
     maxX = max(c1.x, c2.x)
     minY = min(c1.y, c2.y)
     maxY = max(c1.y, c2.y)
-    print(f"{minX}, {maxX}, {minY}, {maxY}")
 
     #Check if there is an edge within the rectangle (not on the edge or outside)
     for edge in edges:
@@ -38,7 +38,6 @@ def validate_rect(edges: list[list[red_tile]], c1: red_tile, c2: red_tile) -> bo
             return False
         
     return True
-
 
 
 #Read input file for the red tiles
@@ -72,7 +71,4 @@ curRect = 0
 while curRect < len(sortedAreas) and not validate_rect(edges, sortedAreas[curRect][1], sortedAreas[curRect][2]):
     curRect += 1
 
-print(curRect)
-print(sortedAreas[curRect][0])
-
-print(f"Maximum Area: {sortedAreas[0][0]}")
+print(f"Maximum Area: {sortedAreas[curRect][0]}")
